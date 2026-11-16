@@ -15,7 +15,7 @@
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/styles.css?v=29">
+  <link rel="stylesheet" href="assets/css/styles.css?v=30">
   <script src="assets/js/telon.js?v=4"></script>
   <script>
     /* Animación de entrada: una sola vez por navegador y nunca con «reducir movimiento». */
@@ -50,7 +50,7 @@
   <a class="saltar-enlace" href="#contenido">Saltar al contenido</a>
 
   <!-- Animación 3D de entrada: la cámara atraviesa el logo y entra en la web.
-       No bloquea (pointer-events: none), dura 2,3 s, se salta con Esc, clic, rueda o el botón,
+       No bloquea (pointer-events: none), dura 2,3 s, se salta con cualquier tecla, clic, rueda o gesto,
        solo sale en la primera visita y nunca con «reducir movimiento». -->
   <div class="intro" id="intro" aria-hidden="true">
     <div class="intro__escena">
@@ -68,25 +68,23 @@
       </div>
     </div>
   </div>
-  <button class="intro__saltar" id="intro-saltar" type="button">Saltar animación</button>
   <script>
     /* Intro: descarga las capas solo si hace falta, espera a que estén cargadas (máx. 1 s)
        y se retira sola al terminar. Cualquier tecla, clic o rueda la corta. */
     (function () {
-      var d = document.documentElement, intro = document.getElementById('intro'), boton = document.getElementById('intro-saltar');
-      if (!d.classList.contains('con-intro')) { intro.remove(); boton.remove(); return; }
+      var d = document.documentElement, intro = document.getElementById('intro');
+      if (!d.classList.contains('con-intro')) { intro.remove(); return; }
       try { localStorage.setItem('br-intro', '1'); } catch (e) {}
       var imgs = [].slice.call(intro.querySelectorAll('img[data-src]')), hecho = false, empezada = false;
-      function quitar() { d.classList.remove('con-intro', 'intro-en-marcha'); intro.remove(); boton.remove(); }
+      function quitar() { d.classList.remove('con-intro', 'intro-en-marcha'); intro.remove(); }
       function terminar(rapido) {
         if (hecho) return; hecho = true;
         ['keydown', 'pointerdown', 'wheel', 'touchmove'].forEach(function (t) { removeEventListener(t, cortar); });
-        if (rapido === true) { intro.classList.add('intro--fuera'); boton.classList.add('intro--fuera'); setTimeout(quitar, 260); }
+        if (rapido === true) { intro.classList.add('intro--fuera'); setTimeout(quitar, 260); }
         else quitar();
       }
       function cortar() { terminar(true); }
       ['keydown', 'pointerdown', 'wheel', 'touchmove'].forEach(function (t) { addEventListener(t, cortar, { passive: true }); });
-      boton.addEventListener('click', cortar);
       function empezar() {
         if (empezada || hecho) return; empezada = true;
         intro.classList.add('intro--lista'); d.classList.add('intro-en-marcha');

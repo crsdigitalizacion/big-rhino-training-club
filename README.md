@@ -66,7 +66,7 @@ Todo se cambia en `assets/js/config.js`. Reglas:
 
 El escudo (con «CrossFit®» debajo) llega desde el fondo girando, con sus capas separadas en profundidad (borde rojo y negro, anillo amarillo, rinoceronte). Se ensambla y la cámara vuela hacia él: cada capa pasa por delante y la web aparece a través del anillo. Solo CSS 3D, sin librerías.
 
-- Dura 2,3 s y nunca bloquea: no captura clics y se corta con cualquier tecla, clic, rueda, gesto o con el botón «Saltar animación».
+- Dura 2,3 s y nunca bloquea: no captura clics y se corta con cualquier tecla, clic, rueda o gesto (sin botón visible, a petición del cliente).
 - Solo se ve en la primera visita (se guarda `br-intro` en el almacenamiento local) y nunca con «reducir movimiento» activado.
 - Las capas y la palabra «CrossFit®» (≈135 KB) solo se descargan cuando hay animación. Si tardan más de 1 s, no se muestra.
 - El código está en el `<script>` que sigue a `#intro` en `index.html`, y los tiempos en `styles.css` (`@keyframes intro-*`).

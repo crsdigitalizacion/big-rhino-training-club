@@ -170,19 +170,12 @@ button { font: inherit; color: inherit; cursor: pointer; }
 /* Vuelo 3D a través del logo. Capas del escudo separadas en profundidad:
    canto (copias oscuras de la base) · base roja y negra · anillo amarillo · rinoceronte.
    La cámara se acerca, cada capa pasa por delante y la web aparece a través del anillo. */
-.intro, .intro__saltar { display: none; }
+.intro { display: none; }
 .con-intro .intro {
   position: fixed; inset: 0; z-index: 200; display: block;
   background: var(--negro);
   pointer-events: none; /* nunca bloquea clics ni el desplazamiento */
   animation: intro-salvavidas 0s linear 3.4s forwards; /* por si algo falla, desaparece igual */
-}
-.con-intro .intro__saltar {
-  display: block; position: fixed; z-index: 201; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom));
-  min-height: 44px; padding: .5em 1em; background: rgba(0, 0, 0, .35); color: var(--blanco);
-  border: 1px solid rgba(255, 255, 255, .55); border-radius: var(--radio);
-  font-family: var(--texto); font-weight: 600; font-size: .9375rem;
-  animation: intro-salvavidas 0s linear 3.4s forwards;
 }
 .intro__escena {
   position: absolute; inset: 0; display: grid; place-items: center; overflow: hidden;
@@ -238,9 +231,9 @@ button { font: inherit; color: inherit; cursor: pointer; }
   100% { transform: scale(1); }
 }
 @keyframes intro-salvavidas { to { opacity: 0; visibility: hidden; } }
-.con-intro .intro.intro--fuera, .con-intro .intro__saltar.intro--fuera { animation: intro-salida .25s ease-out forwards !important; }
+.con-intro .intro.intro--fuera { animation: intro-salida .25s ease-out forwards !important; }
 @keyframes intro-salida { to { opacity: 0; visibility: hidden; } }
-@media (prefers-reduced-motion: reduce) { .intro, .intro__saltar { display: none !important; } }
+@media (prefers-reduced-motion: reduce) { .intro { display: none !important; } }
 
 /* ------------------------------------------------------------ cabecera */
 .cabecera {
