@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Big Rhino Training Club | Box de CrossFit en Logroño</title>
+  <meta name="description" content="Box de CrossFit en Logroño, en la calle Soto Galo, 14. Entrena en grupo con coaches, pide una clase de prueba por teléfono o Instagram y encuentra cómo llegar.">
+  <!-- BORRADOR: quitar esta línea cuando el propietario apruebe la web y haya dominio definitivo -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Big Rhino Training Club · Box de CrossFit en Logroño">
+  <meta property="og:description" content="Entrena CrossFit en grupo en la calle Soto Galo, 14, Logroño. Pide tu clase de prueba.">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css?v=29">
+  <script src="assets/js/telon.js?v=4"></script>
+  <script>
+    /* Animación de entrada: una sola vez por navegador y nunca con «reducir movimiento». */
+    (function () {
+      var d = document.documentElement, visto = false;
+      d.classList.add('js');
+      try { visto = localStorage.getItem('br-intro') === '1'; } catch (e) { visto = true; }
+      // Si se llega desde otra página con el telón, no se repite la intro 3D.
+      if (!visto && !d.classList.contains('telon-entrada') && !matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('con-intro');
+    })();
+  </script>
+  <!-- Datos estructurados: solo lo confirmado (nombre, dirección, teléfono, Instagram). Sin horarios ni valoraciones. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ExerciseGym",
+    "name": "Big Rhino Training Club",
+    "telephone": "+34 651 46 10 45",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "C. Soto Galo, 14",
+      "postalCode": "26009",
+      "addressLocality": "Logroño",
+      "addressRegion": "La Rioja",
+      "addressCountry": "ES"
+    },
+    "sameAs": ["https://www.instagram.com/bigrhinotrainingclub/"]
+  }
+  </script>
+</head>
+<body>
+  <a class="saltar-enlace" href="#contenido">Saltar al contenido</a>
+
+  <!-- Animación 3D de entrada: la cámara atraviesa el logo y entra en la web.
+       No bloquea (pointer-events: none), dura 2,3 s, se salta con Esc, clic, rueda o el botón,
+       solo sale en la primera visita y nunca con «reducir movimiento». -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro__escena">
+      <div class="intro__logo" id="intro-logo">
+        <img class="intro__capa intro__canto" style="--i:6" data-src="assets/img/logo/capa-base.webp" alt="">
+        <img class="intro__capa intro__canto" style="--i:5" data-src="assets/img/logo/capa-base.webp" alt="">
+        <img class="intro__capa intro__canto" style="--i:4" data-src="assets/img/logo/capa-base.webp" alt="">
+        <img class="intro__capa intro__canto" style="--i:3" data-src="assets/img/logo/capa-base.webp" alt="">
+        <img class="intro__capa intro__canto" style="--i:2" data-src="assets/img/logo/capa-base.webp" alt="">
+        <img class="intro__capa intro__canto" style="--i:1" data-src="assets/img/logo/capa-base.webp" alt="">
+        <img class="intro__capa intro__base" data-src="assets/img/logo/capa-base.webp" alt="">
+        <img class="intro__capa intro__anillo" data-src="assets/img/logo/capa-anillo.webp" alt="">
+        <img class="intro__capa intro__rino" data-src="assets/img/logo/capa-rino.webp" alt="">
+        <img class="intro__crossfit" data-src="assets/img/logo/crossfit-blanco.webp" alt="">
+      </div>
+    </div>
+  </div>
+  <button class="intro__saltar" id="intro-saltar" type="button">Saltar animación</button>
+  <script>
+    /* Intro: descarga las capas solo si hace falta, espera a que estén cargadas (máx. 1 s)
+       y se retira sola al terminar. Cualquier tecla, clic o rueda la corta. */
+    (function () {
+      var d = document.documentElement, intro = document.getElementById('intro'), boton = document.getElementById('intro-saltar');
+      if (!d.classList.contains('con-intro')) { intro.remove(); boton.remove(); return; }
+      try { localStorage.setItem('br-intro', '1'); } catch (e) {}
+      var imgs = [].slice.call(intro.querySelectorAll('img[data-src]')), hecho = false, empezada = false;
+      function quitar() { d.classList.remove('con-intro', 'intro-en-marcha'); intro.remove(); boton.remove(); }
+      function terminar(rapido) {
+        if (hecho) return; hecho = true;
+        ['keydown', 'pointerdown', 'wheel', 'touchmove'].forEach(function (t) { removeEventListener(t, cortar); });
+        if (rapido === true) { intro.classList.add('intro--fuera'); boton.classList.add('intro--fuera'); setTimeout(quitar, 260); }
+        else quitar();
+      }
+      function cortar() { terminar(true); }
+      ['keydown', 'pointerdown', 'wheel', 'touchmove'].forEach(function (t) { addEventListener(t, cortar, { passive: true }); });
+      boton.addEventListener('click', cortar);
+      function empezar() {
+        if (empezada || hecho) return; empezada = true;
+        intro.classList.add('intro--lista'); d.classList.add('intro-en-marcha');
+        setTimeout(terminar, 2350);
+      }
+      imgs.forEach(function (i) { i.src = i.getAttribute('data-src'); });
+      var unicas = [].slice.call(intro.querySelectorAll('.intro__base, .intro__anillo, .intro__rino, .intro__crossfit'));
+      var faltan = unicas.length;
+      unicas.forEach(function (i) {
+        function una() { if (--faltan === 0) empezar(); }
+        if (i.complete && i.naturalWidth) una();
+        else { i.addEventListener('load', una, { once: true }); i.addEventListener('error', cortar, { once: true }); }
+      });
+      setTimeout(function () { if (!empezada) terminar(true); }, 1000); // conexión lenta: sin intro
+    })();
+  </script>
+
+  <div class="aviso-borrador" id="aviso-borrador" hidden>
+    <p><strong>Maqueta de la nueva web de Big Rhino Training Club</strong> para revisar con el propietario. No es la web oficial.</p>
+  </div>
+
+  <header class="cabecera" id="cabecera">
+    <div class="cabecera__in">
+      <a class="marca" href="#inicio" aria-label="Big Rhino Training Club, ir al inicio">
+        <img class="marca__emblema" src="assets/img/logo/logo-escudo-160.webp" width="160" height="203" alt="">
+        <span class="marca__texto">Big Rhino <small>Training Club</small></span>
+      </a>
+      <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="menu-boton__barras" aria-hidden="true"></span>
+        <span class="menu-boton__texto">Menú</span>
+      </button>
+      <nav class="menu" id="menu" aria-label="Principal">
+        <ul>
+          <li><a href="#inicio" aria-current="page">Inicio</a></li>
+          <li><a href="clases.html">Entrenamientos</a></li>
+          <li><a href="box.html">El box</a></li>
+          <li><a href="horarios.html">Horarios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <a class="boton boton--rojo menu__cta" href="prueba.html">Clase de prueba</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- ============================================================ PORTADA -->
+    <section class="portada" id="inicio" aria-labelledby="titulo-portada">
+      <div class="portada__medio" id="portada-medio">
+        <picture>
+          <source media="(min-width: 900px)" srcset="assets/img/portada-poster-1280.webp" type="image/webp">
+          <source media="(min-width: 900px)" srcset="assets/img/portada-poster-1280.jpg">
+          <source srcset="assets/img/portada-poster-movil.webp" type="image/webp">
+          <img class="portada__poster" src="assets/img/portada-poster-movil.jpg" alt="" width="540" height="960" fetchpriority="high">
+        </picture>
+        <!-- El vídeo lo añade main.js (horizontal en escritorio, vertical en móvil), salvo con «ahorro de datos» o «reducir movimiento». -->
+      </div>
+      <div class="portada__velo" aria-hidden="true"></div>
+
+      <div class="portada__contenido">
+        <p class="etiqueta"><span class="discos" aria-hidden="true"></span>Box de CrossFit · Logroño</p>
+        <h1 class="portada__titulo" id="titulo-portada">
+          <span class="portada__linea">Aquí no</span>
+          <span class="portada__linea">entrenas solo.</span>
+        </h1>
+        <p class="portada__frase">Clases de CrossFit en grupo, con coaches, en la calle Soto Galo, 14. Si es tu primera vez, empieza con una clase de prueba.</p>
+        <div class="portada__acciones">
+          <a class="boton boton--rojo boton--grande" href="prueba.html">Reserva una clase de prueba</a>
+          <a class="boton boton--claro boton--grande" data-enlace="comoLlegar" href="https://www.google.com/maps/dir/?api=1&amp;destination=Big+Rhino+Training+Club%2C+C.+Soto+Galo+14%2C+26009+Logro%C3%B1o" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+        <p class="valoracion" id="valoracion" hidden></p>
+      </div>
+
+      <div class="portada__pie" id="portada-pie">
+        <p class="portada__aviso" id="aviso-stock">Imagen de stock ilustrativa (Pexels). No es Big Rhino.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================== PRESENTACIÓN -->
+    <section class="seccion seccion--papel" id="presentacion" aria-labelledby="titulo-box">
+      <div class="contenedor rejilla-box">
+        <header class="seccion__cabeza">
+          <p class="indice"><span>01</span> Big Rhino</p>
+          <h2 id="titulo-box">Un box de CrossFit en Soto Galo</h2>
+        </header>
+        <div class="box__texto">
+          <p class="entradilla">Big Rhino Training Club es un box de CrossFit en Logroño. Aquí se entrena en grupo, con un coach que dirige la clase, explica cada movimiento y corrige la técnica.</p>
+          <p>Da igual si vienes de otro deporte o si hace años que no entrenas: lo primero es conocernos. Llama o escríbenos y te contamos cómo funciona una clase y qué horario te encaja.</p>
+        </div>
+        <aside class="box__opiniones" aria-labelledby="titulo-opiniones">
+          <h3 id="titulo-opiniones">Lo que más se repite en sus opiniones de Google</h3>
+          <ul class="lista-marcas">
+            <li>El ambiente del box</li>
+            <li>Los coaches</li>
+            <li>El espacio y el material</li>
+          </ul>
+          <p class="fuente">Resumen de las opiniones públicas de la ficha de Google, consultada en noviembre de 2026.</p>
+        </aside>
+      </div>
+      <div class="contenedor tira-box" id="tira-box" aria-label="Fotos del box">
+        <div class="tira-box__fotos" id="tira-fotos"></div>
+        <a class="tira-box__mas" href="box.html"><span>Ver el box</span><span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- ===================================================== ENTRENAMIENTOS -->
+    <section class="seccion seccion--negra" id="entrenamientos" aria-labelledby="titulo-entrenamientos">
+      <div class="contenedor">
+        <header class="seccion__cabeza">
+          <p class="indice"><span>02</span> Entrenamientos</p>
+          <h2 id="titulo-entrenamientos">Qué se entrena</h2>
+        </header>
+        <p class="entrenamientos__intro">Clases en grupo con coach, horas de Open Box, artes marciales y planes personales. Cada clase tiene su ficha con horario y precio.</p>
+        <div class="modalidades" id="modalidades"></div>
+        <p class="entrenamientos__mas"><a class="boton boton--amarillo boton--grande" href="clases.html">Ver clases, horarios y precios</a></p>
+      </div>
+    </section>
+
+    <!-- ====================================================== HOY EN EL BOX -->
+    <section class="seccion seccion--papel hoy" id="hoy" aria-labelledby="titulo-hoy">
+      <div class="contenedor">
+        <header class="hoy__cabeza">
+          <div>
+            <p class="indice"><span>03</span> En directo</p>
+            <h2 id="titulo-hoy">Hoy en Big Rhino</h2>
+            <p class="hoy__fecha" id="hoy-fecha"></p>
+          </div>
+          <p class="hoy__estado" id="hoy-estado" hidden></p>
+        </header>
+        <div class="hoy__cuerpo">
+          <ol class="hoy__clases" id="hoy-clases" aria-label="Clases de hoy"></ol>
+          <aside class="hoy__lateral" id="hoy-lateral"></aside>
+        </div>
+        <p class="hoy__mas"><a class="boton boton--negro" href="horarios.html">Ver la semana completa</a></p>
+      </div>
+    </section>
+
+    <!-- ========================================================= OPINIONES -->
+    <section class="seccion seccion--roja opiniones" id="opiniones" aria-labelledby="titulo-opiniones-g" hidden>
+      <div class="contenedor opiniones__cabeza">
+        <div>
+          <p class="indice"><span>04</span> Opiniones</p>
+          <h2 id="titulo-opiniones-g">Lo que dicen de nosotros</h2>
+        </div>
+        <a class="opiniones__nota" id="opiniones-nota" target="_blank" rel="noopener"></a>
+      </div>
+      <div class="opiniones__pista" id="opiniones-pista"></div>
+    </section>
+
+    <!-- =============================================================== FAQ -->
+    <section class="seccion seccion--negra" id="preguntas" aria-labelledby="titulo-faq">
+      <div class="contenedor contenedor--estrecho">
+        <header class="seccion__cabeza">
+          <p class="indice"><span>05</span> Preguntas frecuentes</p>
+          <h2 id="titulo-faq">Antes de venir</h2>
+        </header>
+        <div class="faq" id="faq"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__rejilla">
+      <div class="pie__marca">
+        <img class="pie__emblema" src="assets/img/logo/logo-completo-blanco-480.webp" width="480" height="677" alt="" loading="lazy">
+        <p><strong>Big Rhino Training Club</strong><br>Box de CrossFit en Logroño</p>
+      </div>
+      <div>
+        <h2 class="pie__titulo">Contacto</h2>
+        <p data-direccion>C. Soto Galo, 14<br>26009 Logroño, La Rioja</p>
+        <p><a data-tel href="tel:+34651461045">651 46 10 45</a></p>
+        <p><a data-enlace="instagram" href="https://www.instagram.com/bigrhinotrainingclub/" target="_blank" rel="noopener">Instagram @bigrhinotrainingclub</a></p>
+      </div>
+      <div>
+        <h2 class="pie__titulo">Legal</h2>
+        <ul class="pie__lista">
+          <li><a href="aviso-legal.html">Aviso legal</a></li>
+          <li><a href="privacidad.html">Privacidad</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="contenedor pie__creditos">
+      <p id="credito-video">Vídeo de portada: Tima Miroshnichenko en Pexels (licencia de Pexels). Imagen ilustrativa, no corresponde a Big Rhino.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js?v=15"></script>
+  <script src="assets/js/main.js?v=23" defer></script>
+  <script src="assets/js/asistente.js?v=2" defer></script>
+</body>
+</html>

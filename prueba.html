@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Clase de prueba | Big Rhino Training Club, Logroño</title>
+  <meta name="description" content="Pide tu clase de prueba en Big Rhino Training Club, Logroño: elige la clase que quieres probar y te contactamos para cerrar día y hora.">
+  <!-- BORRADOR: quitar esta línea cuando el propietario apruebe la web y haya dominio definitivo -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Clase de prueba · Big Rhino Training Club">
+  <meta property="og:description" content="Elige la clase que quieres probar en Big Rhino, Logroño.">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css?v=29">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="assets/js/telon.js?v=4"></script>
+</head>
+<body class="pagina-clases pagina-prueba">
+  <a class="saltar-enlace" href="#contenido">Saltar al contenido</a>
+
+  <div class="aviso-borrador" id="aviso-borrador" hidden>
+    <p><strong>Maqueta de la nueva web de Big Rhino Training Club</strong> para revisar con el propietario. No es la web oficial.</p>
+  </div>
+
+  <header class="cabecera cabecera--solida" id="cabecera">
+    <div class="cabecera__in">
+      <a class="marca" href="index.html" aria-label="Big Rhino Training Club, ir al inicio">
+        <img class="marca__emblema" src="assets/img/logo/logo-escudo-160.webp" width="160" height="203" alt="">
+        <span class="marca__texto">Big Rhino <small>Training Club</small></span>
+      </a>
+      <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="menu-boton__barras" aria-hidden="true"></span>
+        <span class="menu-boton__texto">Menú</span>
+      </button>
+      <nav class="menu" id="menu" aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="clases.html">Entrenamientos</a></li>
+          <li><a href="box.html">El box</a></li>
+          <li><a href="horarios.html">Horarios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <a class="boton boton--rojo menu__cta" href="prueba.html" aria-current="page">Clase de prueba</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- ======================================================= CABECERA -->
+    <section class="clases-portada" aria-labelledby="titulo-prueba-pag">
+      <div class="contenedor">
+        <p class="etiqueta"><span class="discos" aria-hidden="true"></span>Primera visita · Big Rhino</p>
+        <h1 class="clases-portada__titulo" id="titulo-prueba-pag">Clase <span>de prueba</span></h1>
+        <p class="clases-portada__texto">Déjanos tus datos y la clase que quieres probar. Te contactamos para cerrar día y hora.</p>
+      </div>
+    </section>
+
+    <!-- ======================================================= FORMULARIO -->
+    <section class="seccion seccion--papel seccion--pegada" id="solicitud" aria-labelledby="titulo-solicitud">
+      <div class="contenedor rejilla-solicitud">
+        <div class="solicitud__info">
+          <h2 id="titulo-solicitud">Así funciona</h2>
+          <ol class="pasos pasos--claro">
+            <li><strong>Rellena el formulario.</strong> Tus datos y la clase que te interesa.</li>
+            <li><strong>Te contactamos.</strong> Para cerrar día y hora contigo.</li>
+            <li><strong>Ven al box.</strong> C. Soto Galo, 14, Logroño. Con ropa cómoda y ganas.</li>
+          </ol>
+          <dl class="prueba__datos prueba__datos--claro">
+            <div><dt>Precio de la clase de prueba</dt><dd id="prueba-precio">Te lo confirmamos al reservar</dd></div>
+            <div><dt>Condiciones</dt><dd id="prueba-condiciones">Te las contamos al cerrar día y hora</dd></div>
+          </dl>
+          <div class="tarifas tarifas--claro" id="tarifas" hidden>
+            <h3>Si después te quedas</h3>
+            <ul id="lista-tarifas"></ul>
+            <p class="tarifas__mas"><a href="clases.html#tarifas">Todas las tarifas →</a></p>
+          </div>
+          <p class="solicitud__otros">¿Prefieres hablar? <a data-tel href="tel:+34651461045">Llama al 651 46 10 45</a>, escríbenos por <a data-enlace="instagramMensaje" href="https://ig.me/m/bigrhinotrainingclub" target="_blank" rel="noopener">Instagram</a> o reserva en <a data-reservas href="https://crossfitbigrhino.aimharder.com/schedule" target="_blank" rel="noopener">AimHarder</a>.</p>
+        </div>
+
+        <form class="formulario" id="form-prueba" novalidate>
+          <h2 class="formulario__titulo">Tus datos</h2>
+          <div class="campo">
+            <label for="f-nombre">Nombre y apellidos</label>
+            <input id="f-nombre" name="nombre" type="text" autocomplete="name" required maxlength="80">
+            <p class="campo__error" id="e-nombre" hidden>Escribe tu nombre.</p>
+          </div>
+          <div class="campo campo--doble">
+            <div>
+              <label for="f-telefono">Teléfono</label>
+              <div class="telefono">
+                <select id="f-prefijo" name="prefijo" aria-label="Prefijo del país" autocomplete="tel-country-code">
+                <option value="+34" data-pais="ES" selected>🇪🇸 +34 · España</option>
+                <option value="+351" data-pais="PT">🇵🇹 +351 · Portugal</option>
+                <option value="+33" data-pais="FR">🇫🇷 +33 · Francia</option>
+                <option value="+376" data-pais="AD">🇦🇩 +376 · Andorra</option>
+                <option value="+39" data-pais="IT">🇮🇹 +39 · Italia</option>
+                <option value="+49" data-pais="DE">🇩🇪 +49 · Alemania</option>
+                <option value="+44" data-pais="GB">🇬🇧 +44 · Reino Unido</option>
+                <option value="+353" data-pais="IE">🇮🇪 +353 · Irlanda</option>
+                <option value="+31" data-pais="NL">🇳🇱 +31 · Países Bajos</option>
+                <option value="+32" data-pais="BE">🇧🇪 +32 · Bélgica</option>
+                <option value="+41" data-pais="CH">🇨🇭 +41 · Suiza</option>
+                <option value="+40" data-pais="RO">🇷🇴 +40 · Rumanía</option>
+                <option value="+359" data-pais="BG">🇧🇬 +359 · Bulgaria</option>
+                <option value="+48" data-pais="PL">🇵🇱 +48 · Polonia</option>
+                <option value="+380" data-pais="UA">🇺🇦 +380 · Ucrania</option>
+                <option value="+995" data-pais="GE">🇬🇪 +995 · Georgia</option>
+                <option value="+212" data-pais="MA">🇲🇦 +212 · Marruecos</option>
+                <option value="+213" data-pais="DZ">🇩🇿 +213 · Argelia</option>
+                <option value="+221" data-pais="SN">🇸🇳 +221 · Senegal</option>
+                <option value="+92" data-pais="PK">🇵🇰 +92 · Pakistán</option>
+                <option value="+86" data-pais="CN">🇨🇳 +86 · China</option>
+                <option value="+1" data-pais="US">🇺🇸 +1 · Estados Unidos / Canadá</option>
+                <option value="+52" data-pais="MX">🇲🇽 +52 · México</option>
+                <option value="+53" data-pais="CU">🇨🇺 +53 · Cuba</option>
+                <option value="+1" data-pais="DO">🇩🇴 +1 · República Dominicana</option>
+                <option value="+504" data-pais="HN">🇭🇳 +504 · Honduras</option>
+                <option value="+505" data-pais="NI">🇳🇮 +505 · Nicaragua</option>
+                <option value="+57" data-pais="CO">🇨🇴 +57 · Colombia</option>
+                <option value="+58" data-pais="VE">🇻🇪 +58 · Venezuela</option>
+                <option value="+593" data-pais="EC">🇪🇨 +593 · Ecuador</option>
+                <option value="+51" data-pais="PE">🇵🇪 +51 · Perú</option>
+                <option value="+591" data-pais="BO">🇧🇴 +591 · Bolivia</option>
+                <option value="+595" data-pais="PY">🇵🇾 +595 · Paraguay</option>
+                <option value="+598" data-pais="UY">🇺🇾 +598 · Uruguay</option>
+                <option value="+54" data-pais="AR">🇦🇷 +54 · Argentina</option>
+                <option value="+56" data-pais="CL">🇨🇱 +56 · Chile</option>
+                <option value="+55" data-pais="BR">🇧🇷 +55 · Brasil</option>
+                <option value="otro">🌐 Otro país (escribe el prefijo)</option>
+                </select>
+                <input id="f-telefono" name="telefono" type="tel" autocomplete="tel-national" inputmode="tel" required maxlength="20" aria-describedby="e-telefono">
+              </div>
+              <p class="campo__error" id="e-telefono" hidden>Escribe un teléfono de 9 cifras.</p>
+            </div>
+            <div>
+              <label for="f-email">Correo <span class="campo__opcional">(opcional)</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" maxlength="100" aria-describedby="e-email">
+              <p class="campo__error" id="e-email" hidden>Revisa el correo.</p>
+            </div>
+          </div>
+          <div class="campo">
+            <label for="f-clase">¿Qué clase quieres probar?</label>
+            <select id="f-clase" name="clase" required aria-describedby="e-clase">
+              <option value="">Elige una clase</option>
+            </select>
+            <p class="campo__error" id="e-clase" hidden>Elige una clase.</p>
+          </div>
+          <fieldset class="campo">
+            <legend>¿Cuándo te viene mejor?</legend>
+            <div class="opciones">
+              <label class="opcion"><input type="radio" name="cuando" value="Mañanas" id="f-cuando-m"><span>Mañanas</span></label>
+              <label class="opcion"><input type="radio" name="cuando" value="Tardes" id="f-cuando-t"><span>Tardes</span></label>
+              <label class="opcion"><input type="radio" name="cuando" value="Sábado" id="f-cuando-s"><span>Sábado</span></label>
+              <label class="opcion"><input type="radio" name="cuando" value="Me da igual" id="f-cuando-i" checked><span>Me da igual</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="campo">
+            <legend>¿Has entrenado antes?</legend>
+            <div class="opciones">
+              <label class="opcion"><input type="radio" name="experiencia" value="Nunca" id="f-exp-0" checked><span>Nunca</span></label>
+              <label class="opcion"><input type="radio" name="experiencia" value="Por mi cuenta" id="f-exp-1"><span>Por mi cuenta</span></label>
+              <label class="opcion"><input type="radio" name="experiencia" value="En otro box" id="f-exp-2"><span>En otro box</span></label>
+            </div>
+          </fieldset>
+          <div class="campo">
+            <label for="f-mensaje">Algo que debamos saber <span class="campo__opcional">(opcional)</span></label>
+            <textarea id="f-mensaje" name="mensaje" rows="3" maxlength="500" placeholder="Una lesión, tu objetivo, la oposición que preparas…"></textarea>
+          </div>
+          <div class="campo campo--check">
+            <label class="check" for="f-privacidad">
+              <input id="f-privacidad" name="privacidad" type="checkbox" required aria-describedby="e-privacidad">
+              <span>He leído la <a href="privacidad.html">política de privacidad</a> y acepto que Big Rhino use estos datos solo para contactarme sobre la clase de prueba.</span>
+            </label>
+            <p class="campo__error" id="e-privacidad" hidden>Necesitamos tu permiso para contactarte.</p>
+          </div>
+          <button class="boton boton--rojo boton--grande formulario__enviar" type="submit" id="f-enviar">Pedir mi clase de prueba</button>
+          <div class="formulario__resultado" id="f-resultado" role="status" aria-live="polite" hidden></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__rejilla">
+      <div class="pie__marca">
+        <img class="pie__emblema" src="assets/img/logo/logo-completo-blanco-480.webp" width="480" height="677" alt="" loading="lazy">
+        <p><strong>Big Rhino Training Club</strong><br>Box de CrossFit en Logroño</p>
+      </div>
+      <div>
+        <h2 class="pie__titulo">Contacto</h2>
+        <p data-direccion>C. Soto Galo, 14<br>26009 Logroño, La Rioja</p>
+        <p><a data-tel href="tel:+34651461045">651 46 10 45</a></p>
+        <p><a data-enlace="instagram" href="https://www.instagram.com/bigrhinotrainingclub/" target="_blank" rel="noopener">Instagram @bigrhinotrainingclub</a></p>
+      </div>
+      <div>
+        <h2 class="pie__titulo">Legal</h2>
+        <ul class="pie__lista">
+          <li><a href="aviso-legal.html">Aviso legal</a></li>
+          <li><a href="privacidad.html">Privacidad</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js?v=15"></script>
+  <script src="assets/js/main.js?v=23" defer></script>
+  <script src="assets/js/asistente.js?v=2" defer></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Clases y tarifas | Big Rhino Training Club, Logroño</title>
+  <meta name="description" content="Clases de Big Rhino Training Club en Logroño: Big Rhino Training (CrossFit), Hybrid Training, PowerBuilding, CF Football, Open Box, grappling, lucha y BJJ, opositores y entrenamiento personal. Horario semanal y tarifas.">
+  <!-- BORRADOR: quitar esta línea cuando el propietario apruebe la web y haya dominio definitivo -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Clases y tarifas · Big Rhino Training Club">
+  <meta property="og:description" content="CrossFit, fuerza, entreno híbrido, artes marciales, opositores y entrenamiento personal en C. Soto Galo, 14, Logroño.">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css?v=29">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="assets/js/telon.js?v=4"></script>
+</head>
+<body class="pagina-clases">
+  <a class="saltar-enlace" href="#contenido">Saltar al contenido</a>
+
+  <div class="aviso-borrador" id="aviso-borrador" hidden>
+    <p><strong>Maqueta de la nueva web de Big Rhino Training Club</strong> para revisar con el propietario. No es la web oficial.</p>
+  </div>
+
+  <header class="cabecera cabecera--solida" id="cabecera">
+    <div class="cabecera__in">
+      <a class="marca" href="index.html" aria-label="Big Rhino Training Club, ir al inicio">
+        <img class="marca__emblema" src="assets/img/logo/logo-escudo-160.webp" width="160" height="203" alt="">
+        <span class="marca__texto">Big Rhino <small>Training Club</small></span>
+      </a>
+      <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="menu-boton__barras" aria-hidden="true"></span>
+        <span class="menu-boton__texto">Menú</span>
+      </button>
+      <nav class="menu" id="menu" aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="clases.html" aria-current="page">Entrenamientos</a></li>
+          <li><a href="box.html">El box</a></li>
+          <li><a href="horarios.html">Horarios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <a class="boton boton--rojo menu__cta" href="prueba.html">Clase de prueba</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- ======================================================= CABECERA -->
+    <section class="clases-portada" aria-labelledby="titulo-clases">
+      <div class="contenedor">
+        <p class="etiqueta"><span class="discos" aria-hidden="true"></span>Entrenamientos · Big Rhino</p>
+        <h1 class="clases-portada__titulo" id="titulo-clases">Clases <span>y tarifas</span></h1>
+        <p class="clases-portada__texto">Todo lo que se entrena en el box de Soto Galo: clases con coach, horas de Open Box, artes marciales y planes personales. Con los días y el precio de cada una.</p>
+        <nav class="saltos" aria-label="En esta página">
+          <a href="#box">En el box</a>
+          <a href="#lucha">Artes marciales</a>
+          <a href="#servicios">Planes a tu medida</a>
+          <a href="horarios.html">Horarios</a>
+          <a href="#tarifas">Tarifas</a>
+        </nav>
+        <p class="clases-portada__aviso" data-aviso-stock>Las fotos son de stock (Pexels) y no muestran Big Rhino.</p>
+      </div>
+    </section>
+
+    <!-- Las fichas se pintan desde assets/js/config.js (clases, tarifas y horarioSemana). -->
+    <div id="categorias">
+      <noscript><p class="contenedor">Activa JavaScript para ver las fichas de cada clase, o consulta el calendario en <a href="https://crossfitbigrhino.aimharder.com/schedule">AimHarder</a>.</p></noscript>
+    </div>
+
+    <!-- ============================================= ENLACE A HORARIOS -->
+    <section class="seccion seccion--negra puente-horarios" aria-labelledby="titulo-puente">
+      <div class="contenedor puente-horarios__in">
+        <div>
+          <p class="indice"><span>H</span> Horarios</p>
+          <h2 id="titulo-puente">¿Cuándo hay clase?</h2>
+          <p>El horario semanal de todas las clases, las horas de Open Box y el horario del box, en una página.</p>
+        </div>
+        <a class="boton boton--amarillo boton--grande" href="horarios.html">Ver horarios</a>
+      </div>
+    </section>
+
+    <!-- ===================================================== TARIFAS -->
+    <section class="seccion seccion--papel" id="tarifas" aria-labelledby="titulo-tarifas">
+      <div class="contenedor contenedor--estrecho">
+        <header class="seccion__cabeza">
+          <p class="indice"><span>€</span> Tarifas</p>
+          <h2 id="titulo-tarifas">Precios</h2>
+        </header>
+        <ul class="tabla-tarifas" id="tabla-tarifas"></ul>
+        <p class="fuente" id="fuente-tarifas"></p>
+      </div>
+    </section>
+
+    <!-- ================================================== PRIMERA CLASE -->
+    <section class="seccion seccion--roja clases-cta" aria-labelledby="titulo-cta">
+      <div class="contenedor">
+        <h2 id="titulo-cta">¿Primera vez? Empieza por una clase de prueba</h2>
+        <div class="prueba__acciones">
+          <a class="boton boton--negro boton--grande" href="prueba.html">Pedir clase de prueba</a>
+          <a class="boton boton--blanco boton--grande" data-tel href="tel:+34651461045">Llamar al 651 46 10 45</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__rejilla">
+      <div class="pie__marca">
+        <img class="pie__emblema" src="assets/img/logo/logo-completo-blanco-480.webp" width="480" height="677" alt="" loading="lazy">
+        <p><strong>Big Rhino Training Club</strong><br>Box de CrossFit en Logroño</p>
+      </div>
+      <div>
+        <h2 class="pie__titulo">Contacto</h2>
+        <p data-direccion>C. Soto Galo, 14<br>26009 Logroño, La Rioja</p>
+        <p><a data-tel href="tel:+34651461045">651 46 10 45</a></p>
+        <p><a data-enlace="instagram" href="https://www.instagram.com/bigrhinotrainingclub/" target="_blank" rel="noopener">Instagram @bigrhinotrainingclub</a></p>
+      </div>
+      <div>
+        <h2 class="pie__titulo">Legal</h2>
+        <ul class="pie__lista">
+          <li><a href="aviso-legal.html">Aviso legal</a></li>
+          <li><a href="privacidad.html">Privacidad</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="contenedor pie__creditos" data-aviso-stock>
+      <p>Fotos de las clases: Vitor Diniz, Geni Hoka, Airam Dato-on, Leon Mart, TUBARONES PHOTOGRAPHY, Duren Williams, Mica Bassa, KoolShooters y Andres Ayrton en Pexels (licencia de Pexels). Imágenes ilustrativas, no corresponden a Big Rhino.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js?v=15"></script>
+  <script src="assets/js/main.js?v=23" defer></script>
+  <script src="assets/js/asistente.js?v=2" defer></script>
+</body>
+</html>
