@@ -764,6 +764,12 @@ html:not(.js) .menu { display: block; position: static; }
 .canal__texto { margin: 0; color: #d8d8d8; flex: 1; }
 .canal--destacado .canal__texto { color: #2b2b2b; }
 .canal .boton { align-self: flex-start; }
+/* Tarjeta de WhatsApp: icono verde junto a la etiqueta y botón verde. */
+.canal--whatsapp .canal__tipo { display: flex; align-items: center; gap: .6rem; color: #25d366; }
+.canal__icono { width: 40px; height: 40px; flex: none; padding: 7px; border-radius: 50%; background: #25d366; color: var(--blanco); border: 2px solid var(--negro); box-shadow: 0 0 0 2px #25d366; }
+.boton--wa { --fondo: #25d366; --color: var(--negro); }
+.boton--wa:hover { --fondo: #1ebe5b; }
+.boton__icono-wa { width: 22px; height: 22px; flex: none; }
 #canales .nota-revision { margin-top: 1.5rem; }
 .contacto__direccion { font-size: clamp(1.5rem, 4vw, 2rem); font-family: var(--display); font-weight: 800; font-stretch: 80%; line-height: 1.15; }
 .contacto__nota { margin: 1rem 0 0; font-size: .875rem; color: var(--gris); }
