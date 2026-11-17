@@ -172,7 +172,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
    La cámara se acerca, cada capa pasa por delante y la web aparece a través del anillo. */
 .intro { display: none; }
 .con-intro .intro {
-  position: fixed; inset: 0; z-index: 200; display: block;
+  position: fixed; inset: -25vh 0; z-index: 200; display: block; /* sobresale: en el móvil tapa también lo que queda tras la barra del navegador */
   background: var(--negro);
   pointer-events: none; /* nunca bloquea clics ni el desplazamiento */
   animation: intro-salvavidas 0s linear 3.4s forwards; /* por si algo falla, desaparece igual */
@@ -789,10 +789,9 @@ html:not(.js) .menu { display: block; position: static; }
    página empieza tapada y el telón se retira hacia arriba.
    ========================================================================= */
 html.telon-cierra body::before, html.telon-entrada body::before {
-  content: ""; position: fixed; inset: 0; z-index: 400; pointer-events: none;
+  content: ""; position: fixed; inset: -25vh 0; z-index: 400; pointer-events: none;
   background:
-    linear-gradient(90deg, var(--rojo-vivo) 0 70%, var(--amarillo) 70%) top / 100% 8px no-repeat,
-    linear-gradient(90deg, var(--amarillo) 0 30%, var(--rojo-vivo) 30%) bottom / 100% 8px no-repeat,
+    linear-gradient(90deg, var(--rojo-vivo) 0 70%, var(--amarillo) 70%) 0 25vh / 100% 8px no-repeat,
     var(--negro);
   will-change: transform;
 }
@@ -821,7 +820,7 @@ html.telon-entrada body::after { animation: telon-logo-sale .32s cubic-bezier(.5
    página llega con un ligero zoom de vuelta. Unos 1,7 s; se corta con cualquier
    tecla, clic o gesto. */
 html.telon-inicio body::before {
-  content: ""; position: fixed; inset: 0; z-index: 400; pointer-events: none;
+  content: ""; position: fixed; inset: -25vh 0; z-index: 400; pointer-events: none;
   background: var(--negro);
   animation: telon-fondo-abre .45s cubic-bezier(.4, 0, .2, 1) 1.12s both;
 }
