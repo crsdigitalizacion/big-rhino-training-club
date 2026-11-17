@@ -28,9 +28,10 @@ window.RHINO = {
     visible: '651 46 10 45',
   },
 
-  // WhatsApp solo si el propietario confirma que quiere ofrecer ese canal.
-  // Ejemplo: { enlace: '34651461045', visible: '651 46 10 45' }
-  whatsapp: null,
+  // WhatsApp del box (el mismo número que el teléfono). Activa el botón flotante
+  // verde, la tarjeta de WhatsApp en contacto.html y el enlace en el asistente.
+  // null = sin WhatsApp en la web.
+  whatsapp: { enlace: '34651461045', visible: '651 46 10 45', mensaje: 'Hola, os escribo desde la web de Big Rhino.' },
 
   correo: null, // p. ej. 'hola@dominio.com' cuando lo facilite el gimnasio
 
@@ -287,10 +288,9 @@ window.RHINO = {
   //   o llamar. Nunca dice que se ha enviado algo que no se ha enviado.
   formularioPrueba: {
     endpoint: null,
-    // Número de WhatsApp que recibe las solicitudes (con prefijo 34, sin espacios).
-    // AHORA: el número del responsable del proyecto, para enseñar la maqueta al cliente.
-    // Cambiarlo por el del gimnasio antes de publicar. No se muestra en ninguna página.
-    whatsapp: '34657719647',
+    // Número de WhatsApp que recibe las solicitudes (con prefijo 34, sin espacios):
+    // el del box, 651 46 10 45.
+    whatsapp: '34651461045',
   },
 
   // Clase de prueba: precio y condiciones. null = pendiente (no inventar).

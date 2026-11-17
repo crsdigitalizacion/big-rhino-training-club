@@ -57,7 +57,8 @@ Todo se cambia en `assets/js/config.js`. Reglas:
 - **Open Box (`openBox`):** horas de Open Box y de Rhino SmartKey que salen en `horarios.html`.
 - **Tarifas (`tarifas`):** `estado: 'publicada'` = la publica el gimnasio en AimHarder; `'propuesto'` = el plan existe pero el precio es inventado: en borrador se ve sin aviso (maqueta para el dueño) y fuera del borrador sale «Consultar»; `'aprobado'` = el propietario ha aprobado el precio y se publica.
 - **Clase de prueba:** `clasePrueba.precio` y `clasePrueba.condiciones`.
-- **WhatsApp y correo:** rellena `whatsapp` / `correo` solo si el propietario quiere ofrecer ese canal; aparecen solos como tarjetas en `contacto.html`.
+- **WhatsApp:** `whatsapp` apunta al 651 46 10 45 del box. Activa el botón verde flotante (encima de «¿Dudas?», en todas las páginas con asistente), la tarjeta de WhatsApp en `contacto.html` y el enlace en las respuestas del asistente. Con `null` desaparece todo.
+- **Correo:** rellena `correo` solo si el propietario quiere ofrecer ese canal; aparece solo como tarjeta en `contacto.html`.
 - **Galería:** guarda cada foto en `assets/img/` como `nombre-640.webp` y `nombre-1200.webp` y añade `{ src: 'assets/img/box/nombre', encuadre: '50% 70%', alt: '…' }` (`encuadre` elige qué parte se ve al recortar). Se cargan en diferido.
 - **Vídeo propio:** sustituye `assets/video/portada-1280.mp4` (horizontal, 1280×720) y `portada-movil.mp4` (vertical, 540×960), y los pósteres de `assets/img/`; pon `video.stock: false` para quitar el aviso de stock. Ese aviso y el crédito del pie (y en `clases.html` el rótulo «Foto de stock ilustrativa», el aviso de la cabecera y el crédito de las fotos) no salen en modo borrador (maqueta para el cliente); al poner `modoBorrador: false` vuelven a salir mientras el vídeo sea de stock. El vídeo va en bucle continuo, sin botón de pausa; solo se detiene cuando la portada no está en pantalla. Recomendado: MP4 H.264, 10–15 s, sin audio, menos de 3 MB. El vídeo no se carga si el dispositivo tiene activado «reducir movimiento» o «ahorro de datos»: entonces se ve el póster.
 - **Logo:** está en `assets/img/logo/`. Si cambia, hay que regenerar también las tres capas de la intro (`capa-*.webp`, mismo tamaño y encuadre).
@@ -79,7 +80,7 @@ Pide nombre, teléfono, correo (opcional), la clase que quiere probar (lista sac
 Cómo llegan las solicitudes (`formularioPrueba` en `config.js`):
 
 - **`endpoint`** (recomendado): la URL de un servicio de formularios (Formspree, Getform, Basin…) o de un servidor propio. Recibe un POST con todos los campos y un `resumen` en texto. La web solo dice «Solicitud enviada» si el servicio responde bien; si falla, ofrece llamar.
-- **Sin endpoint pero con `formularioPrueba.whatsapp`** (situación actual): abre WhatsApp con el mensaje ya escrito con todos los datos y la persona solo pulsa enviar. **Ahora apunta al número del responsable del proyecto (657 719 647) para la demo: cambiarlo por el del gimnasio antes de publicar.**
+- **Sin endpoint pero con `formularioPrueba.whatsapp`** (situación actual): abre WhatsApp con el mensaje ya escrito con todos los datos y la persona solo pulsa enviar. Llega al WhatsApp del box (651 46 10 45).
 - **Sin ninguno**: prepara el mensaje y ofrece «Copiar y abrir Instagram» o llamar. No dice nunca que se haya enviado.
 
 Antes de publicar hay que completar la política de privacidad con quién recibe los datos y cuánto tiempo se guardan.
@@ -143,8 +144,7 @@ git init && git add . && git commit -m "Web Big Rhino Training Club (borrador)"
 | Precio y condiciones de la clase de prueba | Pendiente (no se ha inventado) |
 | ¿Acepta Wellhub u otras plataformas? (Wellhub lo lista desde el plan Gold) | Pregunta sin responder en la FAQ |
 | Respuestas de FAQ: principiantes, qué llevar, vestuarios y duchas, aparcamiento | Sin publicar |
-| WhatsApp (¿se ofrece este canal?) y correo | Ocultos |
+| Correo | Oculto |
 | Dominio: crossfitbigrhino.com redirigía el 14/11/2026 a un sitio ajeno (advocaatturkije.nl) | Sin dominio; no conectar hasta confirmar quién lo controla |
 | Datos legales del titular (razón social, NIF, domicilio, correo) | Plantillas con aviso |
-| Número de WhatsApp del gimnasio para el formulario de clase de prueba | Para la demo llega al 657 719 647 (responsable del proyecto). Cambiar `formularioPrueba.whatsapp` antes de publicar |
 | Precio y condiciones de la clase de prueba | La página dice «Te lo confirmamos al reservar» |

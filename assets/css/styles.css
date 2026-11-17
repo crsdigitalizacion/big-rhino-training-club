@@ -1080,6 +1080,23 @@ html.telon-inicio-fuera body::before, html.telon-inicio-fuera body::after { anim
 }
 @media (prefers-reduced-motion: reduce) { .asis, .asis__escribiendo span { animation: none; } }
 
+/* Botón flotante de WhatsApp, encima de «¿Dudas?» (lo crea asistente.js si hay
+   `whatsapp` en config.js). Verde WhatsApp con borde negro como el resto. */
+.wa-flota {
+  position: fixed; z-index: 150; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(82px + env(safe-area-inset-bottom, 0px));
+  display: grid; place-items: center; width: 56px; height: 56px;
+  background: #25d366; color: var(--blanco); border: 2px solid var(--negro); border-radius: 50%;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, .55);
+  transition: transform .2s var(--ease-salida), background-color .2s;
+}
+.wa-flota:hover { background: #1ebe5b; transform: translateY(-2px); }
+.wa-flota:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 3px; }
+.wa-flota__icono { width: 30px; height: 30px; }
+.borrador .wa-flota { bottom: calc(142px + env(safe-area-inset-bottom, 0px)); }
+.asis-abierto .wa-flota { display: none; }
+.asis__boton--wa { background: #25d366; color: var(--negro); }
+.asis__boton--wa:hover { background: #1ebe5b; }
+
 /* =========================================================================
    INICIO: tira de fotos del box
    ========================================================================= */

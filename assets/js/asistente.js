@@ -26,6 +26,7 @@
     if (externo) { a.target = '_blank'; a.rel = 'noopener'; }
     return a;
   }
+  var waEnlace = C.whatsapp ? 'https://wa.me/' + C.whatsapp.enlace + (C.whatsapp.mensaje ? '?text=' + encodeURIComponent(C.whatsapp.mensaje) : '') : null;
   var tarifas = {};
   (C.tarifas || []).forEach(function (t) { tarifas[t.id] = t; });
   function precio(t) { return t.estado === 'propuesto' && !borrador ? 'consultar' : t.precio; }
@@ -80,6 +81,7 @@
         'Puedes hablar con el box así:',
         lista([
           el('span', null, ['Teléfono: ', el('a', { clase: 'asis__enlace-linea', href: 'tel:' + tel.enlace, texto: tel.visible })]),
+          C.whatsapp ? el('span', null, ['WhatsApp: ', el('a', { clase: 'asis__enlace-linea', href: waEnlace, target: '_blank', rel: 'noopener', texto: C.whatsapp.visible })]) : null,
           el('span', null, ['Instagram: ', el('a', { clase: 'asis__enlace-linea', href: E.instagram, target: '_blank', rel: 'noopener', texto: E.instagramUsuario || 'Instagram' })]),
           el('span', null, ['Reservas: ', el('a', { clase: 'asis__enlace-linea', href: C.reservasOnline, target: '_blank', rel: 'noopener', texto: 'AimHarder' })]),
         ]),
@@ -111,6 +113,7 @@
         'Eso no lo sé responder yo. Mejor pregúntaselo directamente al box:',
         el('div', { clase: 'asis__acciones' }, [
           el('a', { clase: 'asis__boton', href: 'tel:' + tel.enlace, texto: 'Llamar al ' + tel.visible }),
+          C.whatsapp ? el('a', { clase: 'asis__boton asis__boton--wa', href: waEnlace, target: '_blank', rel: 'noopener', texto: 'Escribir por WhatsApp' }) : null,
           el('a', { clase: 'asis__boton asis__boton--claro', href: E.instagramMensaje, target: '_blank', rel: 'noopener', texto: 'Escribir por Instagram' }),
         ]),
       ];
@@ -173,6 +176,22 @@
   ]);
   document.body.appendChild(panel);
   document.body.appendChild(boton);
+
+  // Botón flotante de WhatsApp, encima de «¿Dudas?»: abre el chat del box.
+  if (waEnlace) {
+    var ns = 'http://www.w3.org/2000/svg';
+    var icono = document.createElementNS(ns, 'svg');
+    icono.setAttribute('viewBox', '0 0 32 32'); icono.setAttribute('aria-hidden', 'true'); icono.setAttribute('class', 'wa-flota__icono');
+    var bocadillo = document.createElementNS(ns, 'path');
+    bocadillo.setAttribute('d', 'M16 3.5C9.1 3.5 3.5 9 3.5 15.8c0 2.4.7 4.6 1.9 6.5L3.6 28.5l6.4-1.7c1.8 1 3.8 1.5 6 1.5 6.9 0 12.5-5.5 12.5-12.3S22.9 3.5 16 3.5z');
+    bocadillo.setAttribute('fill', 'none'); bocadillo.setAttribute('stroke', 'currentColor'); bocadillo.setAttribute('stroke-width', '2.4'); bocadillo.setAttribute('stroke-linejoin', 'round');
+    var auricular = document.createElementNS(ns, 'path');
+    auricular.setAttribute('d', 'M11.6 9.6c.4 0 .7 0 .9.6l1.1 2.6c.1.3 0 .6-.1.8l-.8 1c-.2.2-.2.5 0 .8.6 1 1.4 1.9 2.4 2.6.5.3 1 .6 1.5.8.3.1.5 0 .7-.2l1-1.2c.2-.3.5-.3.8-.2l2.5 1.2c.3.2.5.3.5.6 0 1-.6 2.4-2.3 2.8-1.3.3-3.2-.2-5.4-1.7-2.3-1.6-3.9-3.9-4.3-5.4-.5-1.8.2-3.2.9-3.7.3-.2.6-.2.8-.2z');
+    auricular.setAttribute('fill', 'currentColor');
+    icono.appendChild(bocadillo); icono.appendChild(auricular);
+    var wa = el('a', { clase: 'wa-flota', id: 'whatsapp-flotante', href: waEnlace, target: '_blank', rel: 'noopener', 'aria-label': 'Escríbenos por WhatsApp al ' + C.whatsapp.visible + ' (se abre WhatsApp)' }, [icono]);
+    document.body.appendChild(wa);
+  }
 
   function bajar() { mensajes.scrollTop = mensajes.scrollHeight; }
   function burbuja(quien, partes) {
